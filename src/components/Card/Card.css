@@ -1,0 +1,68 @@
+.resource-container {
+    position: relative;
+
+    background-color: rgba(0, 0, 0, 0.801);
+    color: white;
+
+    border-radius: 9px;
+    padding: 8px;
+
+    width: 390px;
+    height: 390px;
+}
+
+.resource-container .head>div {
+    margin-left: 4px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resource-container .head {
+    display: flex;
+}
+
+.resource-container .head img {
+    width: 72px;
+    height: 72px;
+}
+
+.github-icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+
+    width: 24px;
+    height: 24px;
+}
+
+.resource-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.resource-container a:hover {
+    text-decoration: underline;
+}
+
+#timestamps {
+    position: absolute;
+    top: 12px;
+    right: 36px;
+
+    display: flex;
+}
+
+#timestamps hr {
+    margin: 0 4px;
+}
+
+.my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.mute {
+    opacity: 0.5;
+}
