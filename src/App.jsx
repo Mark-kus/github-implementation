@@ -1,16 +1,17 @@
-import { Octokit } from "octokit";
+import User from "./components/User.jsx"
 
-function App() {
+import { Octokit } from "octokit";
+const { VITE_TOKEN } = import.meta.env
+
+export default function App() {
 
   const octokit = new Octokit({
-    auth: 'YOUR-TOKEN'
+    auth: VITE_TOKEN
   });
 
   return (
     <>
-      
+      <User octokit={octokit} /> :
     </>
   )
 }
-
-export default App
