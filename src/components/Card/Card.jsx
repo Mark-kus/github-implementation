@@ -2,13 +2,13 @@
 import "./Card.css"
 
 import github from "../../assets/github.svg"
+import { useState } from "react"
 
 export default function Card({ resource }) {
+    // State to toggle wich stats chart to show
+    const [toggleStats, setToggleStats] = useState(false)
 
     // For chart customization see https://github.com/anuraghazra/github-readme-stats
-    const statsHref = resource.owner ?
-        `https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}` :
-        `https://github-readme-stats.vercel.app/api?username=${resource.name}&theme=dark`
 
     return (
         <article className="resource-container">
@@ -35,9 +35,37 @@ export default function Card({ resource }) {
 
             <p>{resource.description}</p>
 
-            <img id="stats-chart"
-                src={statsHref}
-                alt="User/repo stats chart" />
+            {resource.owner ?
+                <img
+                    className="stats-chart"
+                    src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}`}
+                    alt="User/repo stats chart" /> :
+
+                <div id="stats-container">
+                    <p className="my-0">
+                        Stats
+                        <button
+                            className={`base-toggle`}
+                            onClick={() => setToggleStats(!toggleStats)}>
+                            <div className={`base-dot ${toggleStats ? "active-dot" : "default-dot"}`} />
+                        </button>
+                    </p>
+
+                    {toggleStats ?
+
+                        <img
+                            className="stats-chart"
+                            src={`https://github-readme-stats.vercel.app/api?username=${resource.name}`}
+                            alt="User/repo stats chart" /> :
+
+                        <img
+                            className="stats-chart"
+                            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${resource.name}&layout=compact`}
+                            alt="User/repo stats chart" />
+                    }
+
+                </div>}
+
         </article>
     )
 }
