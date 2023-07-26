@@ -38,7 +38,7 @@ export default function Card({ resource }) {
             {resource.owner ?
                 <img
                     className="stats-chart"
-                    src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}`}
+                    src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}&show_owner=true`}
                     alt="User/repo stats chart" /> :
 
                 <div id="stats-container">
@@ -55,7 +55,7 @@ export default function Card({ resource }) {
 
                         <img
                             className="stats-chart"
-                            src={`https://github-readme-stats.vercel.app/api?username=${resource.name}`}
+                            src={`https://github-readme-stats.vercel.app/api?username=${resource.name}&include_all_commits=true`}
                             alt="User/repo stats chart" /> :
 
                         <img
