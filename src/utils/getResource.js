@@ -1,10 +1,12 @@
 export const getUser = async (octokit, username) => {
+    // Gets user data
     const res = await octokit.request('GET /users/{username}', {
         username,
         headers: {
             'X-GitHub-Api-Version': '2022-11-28'
         }
     })
+    // Formats user data for later use
     return {
         image: res.data.avatar_url,
         url: res.data.html_url,
@@ -17,6 +19,7 @@ export const getUser = async (octokit, username) => {
 }
 
 export const getRepo = async (octokit, owner, repo) => {
+    // Gets repo data
     const res = await octokit.request('GET /repos/{owner}/{repo}', {
         owner,
         repo,
@@ -24,6 +27,7 @@ export const getRepo = async (octokit, owner, repo) => {
             'X-GitHub-Api-Version': '2022-11-28'
         }
     })
+    // Formats repo data for later use
     return {
         image: res.data.owner.avatar_url,
         url: res.data.svn_url,
