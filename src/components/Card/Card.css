@@ -5,7 +5,7 @@ body {
 .resource-container {
     position: relative;
 
-    background-color: rgba(0, 0, 0, 0.801);
+    background-color: #141414;
     color: white;
 
     border-radius: 9px;

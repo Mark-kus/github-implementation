@@ -32,7 +32,6 @@ export const getRepo = async (octokit, owner, repo) => {
         image: res.data.owner.avatar_url,
         url: res.data.svn_url,
         name: res.data.name,
-        description: res.data.description ?? "No description provided",
         updatedAt: new Date(res.data.updated_at).toLocaleDateString(),
         createdAt: new Date(res.data.created_at).toLocaleDateString(),
         language: res.data.language,
