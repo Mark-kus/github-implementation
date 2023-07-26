@@ -1,0 +1,21 @@
+#search-container {
+    width: 390px;
+    height: 250px;
+
+    background-color: #141414;
+    border-radius: 9px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+#search-container>input {
+    width: 70%;
+}
+
+#search-container>p {
+    color: #EE1414;
+}
