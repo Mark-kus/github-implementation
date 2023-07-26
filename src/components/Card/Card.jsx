@@ -27,11 +27,11 @@ export default function Card({ resource }) {
                     </p>
                 </div>
 
-                <button
-                        className={`base-toggle ${toggleStats ? "active-toggle" : "default-toggle"}`}
-                        onClick={() => setToggleStats(!toggleStats)}>
-                        <div className={`base-dot ${toggleStats ? "active-dot" : "default-dot"}`} />
-                </button>
+                {!resource.owner && <button
+                    className={`base-toggle ${toggleStats ? "active-toggle" : "default-toggle"}`}
+                    onClick={() => setToggleStats(!toggleStats)}>
+                    <div className={`base-dot ${toggleStats ? "active-dot" : "default-dot"}`} />
+                </button>}
             </div>
 
             <div id="timestamps">
@@ -40,26 +40,29 @@ export default function Card({ resource }) {
                 <p className="my-0">{resource.updatedAt}</p>
             </div>
 
-            {resource.owner ?
-                <img
-                    className="stats-chart"
-                    src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}&show_owner=true`}
-                    alt="User/repo stats chart" /> :
 
-                <div id="stats-container">
-                    {toggleStats ?
+            <div id="stats-container">
+
+                {resource.owner ?
+                    <img
+                        className="stats-chart"
+                        src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}&show_owner=true`}
+                        alt="Repo stats chart" /> :
+
+                    <div className={`charts ${toggleStats ? "translated-charts" : "untranslated-charts"}`}>
+                        <img
+                            className="stats-chart"
+                            src={`https://github-readme-stats.vercel.app/api?username=${resource.name}&include_all_commits=true&line_height=24`}
+                            alt="User stats chart" />
 
                         <img
                             className="stats-chart"
-                            src={`https://github-readme-stats.vercel.app/api?username=${resource.name}&include_all_commits=true`}
-                            alt="User/repo stats chart" /> :
+                            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${resource.name}&layout=compact&card_width=390`}
+                            alt="User stats chart" />
+                    </div>
+                }
 
-                        <img
-                            className="stats-chart"
-                            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${resource.name}&layout=compact`}
-                            alt="User/repo stats chart" />
-                    }
-                </div>}
+            </div>
 
         </article>
     )
