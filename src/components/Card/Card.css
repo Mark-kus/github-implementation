@@ -25,7 +25,7 @@ body {
 
 .resource-container .head {
     display: flex;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .resource-container .head img {
