@@ -4,6 +4,12 @@ import "./Card.css"
 import github from "../../assets/github.svg"
 
 export default function Card({ resource }) {
+
+    // For chart customization see https://github.com/anuraghazra/github-readme-stats
+    const statsHref = resource.owner ?
+        `https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}` :
+        `https://github-readme-stats.vercel.app/api?username=${resource.name}&theme=dark`
+
     return (
         <article className="resource-container">
             <img src={github} className="github-icon" alt="Github icon" />
@@ -17,13 +23,21 @@ export default function Card({ resource }) {
                 </div>
             </div>
 
-            <p id="timestamps" className="my-0">{resource.createdAt} <hr /> {resource.updatedAt}</p>
+            <div id="timestamps">
+                <p className="my-0">{resource.createdAt}</p>
+                <hr />
+                <p className="my-0">{resource.updatedAt}</p>
+            </div>
 
             {resource.owner ?
                 <p className="my-0">Language: {resource.language}</p> :
                 <p className="my-0">Location: {resource.location}</p>}
 
             <p>{resource.description}</p>
+
+            <img id="stats-chart"
+                src={statsHref}
+                alt="User/repo stats chart" />
         </article>
     )
 }
