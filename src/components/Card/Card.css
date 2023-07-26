@@ -26,7 +26,7 @@ body {
 
 .resource-container .head {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .resource-container .head img {
@@ -67,16 +67,25 @@ body {
 }
 
 #stats-container {
-    width: 390px;
-    height: 170px;
-    overflow-x: hidden;
+    width: 374px;
+    height: 154px;
     display: flex;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
+
 .stats-chart {
-    width: 390px;
+    width: 374px;
+}
+
+.charts>div {
+    width: 374px;
     margin-right: 10px;
+
+    display: flex;
+    justify-content: center;
 }
 
 .charts {
@@ -85,7 +94,7 @@ body {
 }
 
 .translated-charts {
-    transform: translate(-400px);
+    transform: translate(-384px);
 }
 
 .untranslated-charts {

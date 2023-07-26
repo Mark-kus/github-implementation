@@ -34,7 +34,7 @@ export default function Card({ resource }) {
                 </button>}
             </div>
 
-                <p id="timestamps" className="my-0">{resource.createdAt}</p>
+            <p id="timestamps" className="my-0">{resource.createdAt}</p>
 
             <div id="stats-container">
 
@@ -45,15 +45,19 @@ export default function Card({ resource }) {
                         alt="Repo stats chart" /> :
 
                     <div className={`charts ${toggleStats ? "translated-charts" : "untranslated-charts"}`}>
-                        <img
-                            className="stats-chart"
-                            src={`https://github-readme-stats.vercel.app/api?username=${resource.name}&include_all_commits=true&line_height=24`}
-                            alt="User stats chart" />
+                        <div>
+                            <img
+                                className="stats-chart"
+                                src={`https://github-readme-stats.vercel.app/api?username=${resource.name}&include_all_commits=true&line_height=24`}
+                                alt="User stats chart" />
+                        </div>
 
-                        <img
-                            className="stats-chart"
-                            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${resource.name}&layout=compact&card_width=390`}
-                            alt="User stats chart" />
+                        <div>
+                            <img
+                                className="stats-chart"
+                                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${resource.name}&layout=compact&card_width=390`}
+                                alt="User stats chart" />
+                        </div>
                     </div>
                 }
 
