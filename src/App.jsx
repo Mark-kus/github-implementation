@@ -13,14 +13,17 @@ export default function App() {
   const [username, setUsername] = useState("")
   const [repo, setRepo] = useState("")
 
+  // For toggling wich data should fetch
   const [objective, setObjective] = useState(USERNAME)
   const [data, setData] = useState(null)
 
+  // Octokit instance for fetching data
   const octokit = new Octokit({
     auth: VITE_TOKEN
   });
 
   const getObjetive = async () => {
+    // Depending on wich option is selected, fetchs corresponding data
     switch (objective) {
       case REPO:
         setData(await getRepo(octokit, username, repo))
