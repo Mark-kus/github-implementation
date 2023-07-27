@@ -15,13 +15,15 @@ export default function Card({ resource }) {
             <img src={github} className="github-icon" alt="Github icon" />
 
             <div className="head">
-                <img src={resource.image} alt={resource.name} />
+                <a href={resource.owner ? resource.owner.url : resource.url} target="_blank" rel="noreferrer">
+                    <img src={resource.image} alt={resource.name} />
+                </a>
 
                 <div>
-                    <h3 className="my-0"><a href={resource.url}>{resource.name}</a></h3>
+                    <h3 className="my-0"><a href={resource.url} target="_blank" rel="noreferrer">{resource.name}</a></h3>
                     <p className="my-0 mute">
                         {resource.owner ?
-                            <a href={resource.owner.url}>{resource.owner.name}</a> :
+                            <a href={resource.owner.url} target="_blank" rel="noreferrer">{resource.owner.name}</a> :
                             resource.location
                         }
                     </p>
@@ -39,10 +41,12 @@ export default function Card({ resource }) {
             <div id="stats-container">
 
                 {resource.owner ?
-                    <img
-                        className="stats-chart"
-                        src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}&show_owner=true&theme=dark&border_color=141414`}
-                        alt="Repo stats chart" /> :
+                    <a href={resource.url} target="_blank" rel="noreferrer">
+                        <img
+                            className="stats-chart"
+                            src={`https://github-readme-stats.vercel.app/api/pin/?username=${resource.owner.name}&repo=${resource.name}&show_owner=true&theme=dark&border_color=141414`}
+                            alt="Repo stats chart" />
+                    </a> :
 
                     <div className={`charts ${toggleStats ? "translated-charts" : "untranslated-charts"}`}>
                         <div>
